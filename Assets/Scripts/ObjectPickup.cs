@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public enum Type { Torch, Idol }
@@ -14,7 +15,7 @@ public class ObjectPickup : MonoBehaviour
 
             }
             if (this.gameObject.tag.Equals("Idol")){
-
+                Timer.StartCountdown();
             }
             Destroy(this.gameObject);
         }
