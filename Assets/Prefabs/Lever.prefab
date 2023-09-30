@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 3963913036047802055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.233, y: 0.99, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.6792453, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -124,5 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf48bdc956c8f84db816ba8313af6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leverUp: {fileID: 21300000, guid: 45c995b76b893fd4b9e8d3e0f9f6463b, type: 3}
-  leverDown: {fileID: 21300000, guid: f3940f64802892746b2ec336d3b0c5f4, type: 3}
+  color: 0
+  leverUp: {fileID: 21300000, guid: f082e69f825d0aa44b687e592731c0a8, type: 3}
+  leverDown: {fileID: 21300000, guid: 8008767850e870a4e8baaf5a6fc8b35c, type: 3}
