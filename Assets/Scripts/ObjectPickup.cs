@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TorchPickup : MonoBehaviour
+public enum Type { Torch, Idol }
+public class ObjectPickup : MonoBehaviour
 {
     private bool isPickedUp = false;
     void Update()
     {
         if (isPickedUp)
         {
+            if (this.gameObject.tag.Equals("Torch")){
+
+            }
+            if (this.gameObject.tag.Equals("Idol")){
+
+            }
             Destroy(this.gameObject);
         }
     }
