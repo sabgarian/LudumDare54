@@ -32,4 +32,12 @@ public class PlayerControls : MonoBehaviour
             transform.position += new Vector3(velocity * Time.deltaTime, 0f, 0f);
         }
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "BreakableWall" && Input.GetKeyDown(KeyCode.R)) 
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 }
