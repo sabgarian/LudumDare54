@@ -6,18 +6,16 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     public float velocity;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
-            transform.position += new Vector3(0f, velocity * Time.deltaTime, 0f);  
+            transform.position += new Vector3(0f, velocity * Time.deltaTime, 0f);
         }
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
