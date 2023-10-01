@@ -12,7 +12,13 @@ public class LeverTrigger : MonoBehaviour
     void Start()
     {
         key = GetComponent<SpriteRenderer>();
+        key.enabled = false;
     }
+
+    void Update()
+    {
+
+    }   
     
     void OnTriggerEnter2D(Collider2D other)
     {
