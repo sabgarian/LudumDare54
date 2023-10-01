@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerWin : MonoBehaviour
 {
-    GameObject VictoryScr;
+    public GameObject VictoryScr;
 
     void Start()
     {

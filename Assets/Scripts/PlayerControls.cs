@@ -10,6 +10,9 @@ public class PlayerControls : MonoBehaviour
     public float torchDuration;
     public bool canMove = true;
 
+    public GameOverScreen GameOverScreen;
+    public VictoryScript VictoryScript;
+
     float torchTimer = 0f;
     Light2D light2D;
     int pickaxeCount = 0;
@@ -23,6 +26,14 @@ public class PlayerControls : MonoBehaviour
     void Update()
     {
         HandleTorchTimer();
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            GameOverScreen.SetUp();
+        }
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            VictoryScript.SetUp();
+        }
     }
 
     void FixedUpdate()
