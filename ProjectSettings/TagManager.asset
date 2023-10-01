@@ -9,6 +9,7 @@ TagManager:
   - Idol
   - Enemy
   - IndestructableWall
+  - Goalpost
   layers:
   - Default
   - TransparentFX
