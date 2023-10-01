@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    const int MILLIS_PER_SEC = 1000;
-
     static bool isCountingDown = false;
-    static float timeRemaining = 300 * MILLIS_PER_SEC;
+    static float timeRemaining = 300;
 
     // Update is called once per frame
     void Update()

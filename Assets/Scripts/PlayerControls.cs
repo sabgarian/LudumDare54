@@ -8,6 +8,7 @@ public class PlayerControls : MonoBehaviour
 {
     public float velocity;
     public float torchDuration;
+    public bool canMove = true;
 
     float torchTimer = 0f;
     Light2D light2D;
@@ -43,6 +44,11 @@ public class PlayerControls : MonoBehaviour
 
     void HandleMovement()
     {
+        if (!canMove)
+        {
+            return;
+        }
+
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             transform.position += new Vector3(0f, velocity * Time.deltaTime, 0f);
