@@ -84,6 +84,10 @@ public class PlayerControls : MonoBehaviour
             tilemap.SetTile(point, null);
             pickaxeCount--;
         }
+        //Eventually, the Player will need to stop moving if they touch a wall of any kind (the wall serves as a solid barrier)
+        else if (other.gameObject.tag == "BreakableWall" || other.gameObject.tag == "IndestructableWall"){
+
+        }
     }
 
     public void GainTorch()
