@@ -5,7 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class ObjectPickup : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D other)
+    Vector3 pos;
+
+    protected bool floating = true;
+
+	private void Start()
+	{
+		pos = transform.position;
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -18,4 +27,15 @@ public class ObjectPickup : MonoBehaviour
     {
         Debug.Log("Effect not implemented");
     }
+
+	private void Update()
+	{
+        if (!floating) { return; }
+
+        float time = Time.time;
+        float offset = Mathf.Sin(5 * time);
+        offset /= 10f;
+
+        gameObject.transform.position = pos + Vector3.up * offset;
+	}
 }

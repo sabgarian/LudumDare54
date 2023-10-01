@@ -38,12 +38,21 @@ public class Lever : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.gameObject.CompareTag("Player"))
+        {
+            return;
+        }
+
         isInteractable = true;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        isInteractable = false;
+		if (!other.gameObject.CompareTag("Player"))
+		{
+			return;
+		}
+		isInteractable = false;
     }
 
     void Update()

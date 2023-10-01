@@ -6,7 +6,12 @@ using UnityEngine;
 
 public class Idol : ObjectPickup
 {
-    public override void Effect()
+	private void Start()
+	{
+		floating = false;
+	}
+
+	public override void Effect()
     {
         CameraController controller = FindObjectOfType<CameraController>();
         controller.PlayIdolCutscene();

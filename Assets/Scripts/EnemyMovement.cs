@@ -8,11 +8,9 @@ public class EnemyMovement : MonoBehaviour
     public float velocity = 2.0f;
     public bool isVertical;
     private bool facingPos = true;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
     // Update is called once per frame
     void Update()

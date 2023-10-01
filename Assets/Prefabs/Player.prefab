@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2434774482738494012}
   - component: {fileID: 2434774482738494013}
   - component: {fileID: 1042322077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -101,7 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 6
-  torchDuration: 30
+  torchDuration: 20
+  canMove: 1
 --- !u!50 &2434774482738494012
 Rigidbody2D:
   serializedVersion: 4
