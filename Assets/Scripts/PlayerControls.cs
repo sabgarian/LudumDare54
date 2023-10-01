@@ -11,6 +11,7 @@ public class PlayerControls : MonoBehaviour
     public bool canMove = true;
 
     public GameOverScreen GameOverScreen;
+    public VictoryScript VictoryScript;
 
     float torchTimer = 0f;
     Light2D light2D;
@@ -28,6 +29,10 @@ public class PlayerControls : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P))
         {
             GameOverScreen.SetUp();
+        }
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            VictoryScript.SetUp();
         }
     }
 
