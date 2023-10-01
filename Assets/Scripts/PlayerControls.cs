@@ -26,14 +26,6 @@ public class PlayerControls : MonoBehaviour
     void Update()
     {
         HandleTorchTimer();
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            GameOverScreen.SetUp();
-        }
-        if(Input.GetKeyDown(KeyCode.V))
-        {
-            VictoryScript.SetUp();
-        }
     }
 
     void FixedUpdate()
