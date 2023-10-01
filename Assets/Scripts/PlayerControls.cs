@@ -63,9 +63,13 @@ public class PlayerControls : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BreakableWall" && Input.GetKeyDown(KeyCode.R)) 
+        if (collision.gameObject.tag == "BreakableWall" && Input.GetKeyDown(KeyCode.R))
         {
             Destroy(collision.gameObject);
+        }
+        //Eventually, the Player will need to stop moving if they touch a wall of any kind (the wall serves as a solid barrier)
+        else if (collision.gameObject.tag == "BreakableWall" || collision.gameObject.tag == "IndestructableWall"){
+
         }
     }
 
