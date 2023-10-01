@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Tilemaps;
 
 public class PlayerControls : MonoBehaviour
 {
     public float velocity;
     public float torchDuration;
+    public bool canMove = true;
 
     float torchTimer = 0f;
     Light2D light2D;
+    int pickaxeCount = 0;
 
     void Start()
     {
@@ -33,7 +35,6 @@ public class PlayerControls : MonoBehaviour
         if (torchTimer > 0f)
         {
             torchTimer -= Time.deltaTime;
-            Debug.Log(torchTimer);
             if (torchTimer <= 0f)
             {
                 light2D.enabled = false;
@@ -43,6 +44,11 @@ public class PlayerControls : MonoBehaviour
 
     void HandleMovement()
     {
+        if (!canMove)
+        {
+            return;
+        }
+
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             transform.position += new Vector3(0f, velocity * Time.deltaTime, 0f);
@@ -61,14 +67,25 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionStay2D(Collision2D other)
     {
-        if (collision.gameObject.tag == "BreakableWall" && Input.GetKeyDown(KeyCode.R))
+        if (
+            other.gameObject.CompareTag("BreakableWall")
+            && Input.GetKeyDown(KeyCode.E)
+            && pickaxeCount > 0
+        )
         {
-            Destroy(collision.gameObject);
+            Vector3Int point =
+                new(
+                    (int)(other.GetContact(0).point.x / 2f),
+                    (int)(other.GetContact(0).point.y / 2f)
+                );
+            Tilemap tilemap = other.gameObject.GetComponent<Tilemap>();
+            tilemap.SetTile(point, null);
+            pickaxeCount--;
         }
         //Eventually, the Player will need to stop moving if they touch a wall of any kind (the wall serves as a solid barrier)
-        else if (collision.gameObject.tag == "BreakableWall" || collision.gameObject.tag == "IndestructableWall"){
+        else if (other.gameObject.tag == "BreakableWall" || other.gameObject.tag == "IndestructableWall"){
 
         }
     }
@@ -77,5 +94,10 @@ public class PlayerControls : MonoBehaviour
     {
         torchTimer = torchDuration;
         light2D.enabled = true;
+    }
+
+    public void GainPickaxe()
+    {
+        pickaxeCount++;
     }
 }

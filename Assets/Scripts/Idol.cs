@@ -8,6 +8,7 @@ public class Idol : ObjectPickup
 {
     public override void Effect()
     {
-        Timer.StartCountdown();
+        CameraController controller = FindObjectOfType<CameraController>();
+        controller.PlayIdolCutscene();
     }
 }
