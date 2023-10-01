@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Tilemaps;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class PlayerControls : MonoBehaviour
 
     float torchTimer = 0f;
     Light2D light2D;
+    int pickaxeCount = 0;
 
     void Start()
     {
@@ -33,7 +34,6 @@ public class PlayerControls : MonoBehaviour
         if (torchTimer > 0f)
         {
             torchTimer -= Time.deltaTime;
-            Debug.Log(torchTimer);
             if (torchTimer <= 0f)
             {
                 light2D.enabled = false;
@@ -61,11 +61,22 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionStay2D(Collision2D other)
     {
-        if (collision.gameObject.tag == "BreakableWall" && Input.GetKeyDown(KeyCode.R)) 
+        if (
+            other.gameObject.CompareTag("BreakableWall")
+            && Input.GetKeyDown(KeyCode.E)
+            && pickaxeCount > 0
+        )
         {
-            Destroy(collision.gameObject);
+            Vector3Int point =
+                new(
+                    (int)(other.GetContact(0).point.x / 2f),
+                    (int)(other.GetContact(0).point.y / 2f)
+                );
+            Tilemap tilemap = other.gameObject.GetComponent<Tilemap>();
+            tilemap.SetTile(point, null);
+            pickaxeCount--;
         }
     }
 
@@ -73,5 +84,10 @@ public class PlayerControls : MonoBehaviour
     {
         torchTimer = torchDuration;
         light2D.enabled = true;
+    }
+
+    public void GainPickaxe()
+    {
+        pickaxeCount++;
     }
 }

@@ -48,7 +48,7 @@ public class Lever : MonoBehaviour
 
     void Update()
     {
-        if (isInteractable && Input.GetKeyDown(KeyCode.E) && !isActivated)
+        if (isInteractable && Input.GetKeyDown(KeyCode.E))
         {
             Interact();
         }
@@ -56,8 +56,8 @@ public class Lever : MonoBehaviour
 
     void Interact()
     {
-        isActivated = true;
-        spriteRenderer.sprite = leverDown;
+        isActivated = !isActivated;
+        spriteRenderer.sprite = isActivated ? leverDown : leverUp;
         OnLeverActivated?.Invoke(color);
     }
 }
