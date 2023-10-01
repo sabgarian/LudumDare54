@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - IndestructableWall
   - Goalpost
+  - LeverTrigger
   layers:
   - Default
   - TransparentFX
