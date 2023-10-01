@@ -1,25 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    static  bool isCountingDown = false;
-    static int timeRemaining = 5400;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    const int MILLIS_PER_SEC = 1000;
+
+    static bool isCountingDown = false;
+    static float timeRemaining = 300 * MILLIS_PER_SEC;
 
     // Update is called once per frame
     void Update()
     {
         if (isCountingDown)
         {
-            UnityEngine.Debug.Log(timeRemaining);
-            timeRemaining--;
+            Debug.Log(timeRemaining);
+            timeRemaining -= Time.deltaTime;
+            if (timeRemaining <= 0)
+            {
+                Debug.Log("Game Over");
+                isCountingDown = false;
+            }
         }
     }
 

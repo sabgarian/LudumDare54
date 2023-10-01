@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class PlateController : MonoBehaviour
 {
-    [SerializeField] private GameObject _rubble;
-    [SerializeField] private Vector2 _rubbleposition;
-    void OnTriggerEnter2D(Collider2D other)
+    [SerializeField]
+    private Sprite _rubble;
+
+    void Start()
     {
-        if (other.tag == "Player") { 
-            GameObject obj = Instantiate(_rubble);
-            obj.transform.position = _rubbleposition;
+        GetComponent<BoxCollider2D>().isTrigger = true;
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GetComponent<SpriteRenderer>().sprite = _rubble;
+            GetComponent<BoxCollider2D>().isTrigger = false;
         }
     }
 }

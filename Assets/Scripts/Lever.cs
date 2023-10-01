@@ -12,7 +12,7 @@ public class Lever : MonoBehaviour
         Yellow
     }
 
-    public static UnityEvent<Color> OnLeverActivated = new();
+    public static UnityAction<Color> OnLeverActivated;
 
     public static readonly Color32[] leverColors =
     {
