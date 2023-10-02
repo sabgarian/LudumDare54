@@ -14,15 +14,8 @@ public class Lever : MonoBehaviour
 
     public static UnityAction<Color> OnLeverActivated;
 
-    public static readonly Color32[] leverColors =
-    {
-        new Color32(255, 0, 0, 255),
-        new Color32(0, 0, 255, 255),
-        new Color32(255, 255, 0, 255)
-    };
-
     public Color color;
-    public Sprite leverUp,
+    public Sprite[] leverUp,
         leverDown;
 
     bool isInteractable = false;
@@ -32,8 +25,7 @@ public class Lever : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = leverUp;
-        spriteRenderer.color = leverColors[(int)color];
+        spriteRenderer.sprite = leverUp[(int)color];
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -48,11 +40,11 @@ public class Lever : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-		if (!other.gameObject.CompareTag("Player"))
-		{
-			return;
-		}
-		isInteractable = false;
+        if (!other.gameObject.CompareTag("Player"))
+        {
+            return;
+        }
+        isInteractable = false;
     }
 
     void Update()
@@ -66,7 +58,7 @@ public class Lever : MonoBehaviour
     void Interact()
     {
         isActivated = !isActivated;
-        spriteRenderer.sprite = isActivated ? leverDown : leverUp;
+        spriteRenderer.sprite = isActivated ? leverDown[(int)color] : leverUp[(int)color];
         OnLeverActivated?.Invoke(color);
     }
 }

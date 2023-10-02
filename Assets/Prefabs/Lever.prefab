@@ -222,8 +222,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.022808945, b: 0.6784314, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1d43fcd1e713a0745a8047bd22d8aa7c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -250,7 +250,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -272,5 +272,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 0
-  leverUp: {fileID: 21300000, guid: f082e69f825d0aa44b687e592731c0a8, type: 3}
-  leverDown: {fileID: 21300000, guid: 8008767850e870a4e8baaf5a6fc8b35c, type: 3}
+  leverUp:
+  - {fileID: 21300000, guid: 1d43fcd1e713a0745a8047bd22d8aa7c, type: 3}
+  - {fileID: 21300000, guid: b91d3094cdf33df4e8a6422ac27ce34a, type: 3}
+  - {fileID: 21300000, guid: be7f78aa0eee50c46b07b3a76937c3a4, type: 3}
+  leverDown:
+  - {fileID: 21300000, guid: 1fb46f59bb3a72e45bb7ac889536ab87, type: 3}
+  - {fileID: 21300000, guid: c6519c3519584614997fe6bd8dab72b4, type: 3}
+  - {fileID: 21300000, guid: 279e383d3352db549bd1652635cbea17, type: 3}
