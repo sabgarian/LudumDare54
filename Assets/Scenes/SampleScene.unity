@@ -504,7 +504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -95.701, y: 23}
+  m_AnchoredPosition: {x: -95.701, y: 40}
   m_SizeDelta: {x: 142.1776, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &72284575
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 180 seconds
+  m_text: '> 360 seconds remaining'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
   m_sharedMaterial: {fileID: -1169688872040428271, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
@@ -1176,7 +1176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -205, y: -120}
+  m_AnchoredPosition: {x: -205, y: -103}
   m_SizeDelta: {x: 30, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &181898399
@@ -1552,7 +1552,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193942712}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1562,8 +1562,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 78}
-  m_SizeDelta: {x: 480.2162, y: 50}
+  m_AnchoredPosition: {x: 145.38, y: 20}
+  m_SizeDelta: {x: 290.7628, y: 56.9818}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &193942714
 MonoBehaviour:
@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Escaped With X Seconds Remaining
+  m_text: "You Escaped With:\n X Seconds Remaining"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
   m_sharedMaterial: {fileID: -1169688872040428271, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
@@ -1618,7 +1618,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3463,7 +3463,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -205, y: -50}
+  m_AnchoredPosition: {x: -205, y: -33}
   m_SizeDelta: {x: 30, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &436530147
@@ -30024,7 +30024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -95.70102, y: -50}
+  m_AnchoredPosition: {x: -95.70102, y: -33}
   m_SizeDelta: {x: 142.1776, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &735651892
@@ -30047,7 +30047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 360 seconds
+  m_text: '> 180 seconds remaining'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
   m_sharedMaterial: {fileID: -1169688872040428271, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
@@ -32705,7 +32705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 145.38, y: -50}
+  m_AnchoredPosition: {x: 145.38, y: -86}
   m_SizeDelta: {x: 290.7628, y: 56.9818}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1180515498
@@ -32728,7 +32728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Your Personal Best: \nX Seconds"
+  m_text: "Your Personal Best: \nX Seconds Remaining"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
   m_sharedMaterial: {fileID: -1169688872040428271, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
@@ -45370,7 +45370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -95.701, y: -120}
+  m_AnchoredPosition: {x: -104.28, y: -103}
   m_SizeDelta: {x: 142.1776, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831845253
@@ -45393,7 +45393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 540 seconds
+  m_text: '> 0 seconds remaining'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
   m_sharedMaterial: {fileID: -1169688872040428271, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
@@ -46655,7 +46655,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029963307}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46665,7 +46665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -205, y: 23}
+  m_AnchoredPosition: {x: -204.99998, y: 40}
   m_SizeDelta: {x: 30, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029963309
@@ -46798,7 +46798,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055556003}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46808,7 +46808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 128}
+  m_AnchoredPosition: {x: -0.000061035156, y: 120}
   m_SizeDelta: {x: 304.5251, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055556005
@@ -46831,7 +46831,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You are Winner!
+  m_text: You Escaped!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
   m_sharedMaterial: {fileID: -1169688872040428271, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
