@@ -18,7 +18,8 @@ public class PlayerControls : MonoBehaviour
     public bool hasPickaxe = false;
 
     public GameOverScreen GameOverScreen;
-    public Image pickaxeIcon;
+    public ItemHUD pickaxeHUD,
+        torchHUD;
 
     public int health = 3;
     private bool takingDamage = false;
@@ -74,6 +75,7 @@ public class PlayerControls : MonoBehaviour
             if (torchTimer <= 0f)
             {
                 light2D.enabled = false;
+                torchHUD.LoseItem();
             }
         }
     }
@@ -157,7 +159,7 @@ public class PlayerControls : MonoBehaviour
             Tilemap tilemap = other.gameObject.GetComponent<Tilemap>();
             tilemap.SetTile(point, null);
             hasPickaxe = false;
-            pickaxeIcon.enabled = false;
+            pickaxeHUD.LoseItem();
         }
     }
 
@@ -165,11 +167,12 @@ public class PlayerControls : MonoBehaviour
     {
         torchTimer = torchDuration;
         light2D.enabled = true;
+        torchHUD.GainItem();
     }
 
     public void GainPickaxe()
     {
         hasPickaxe = true;
-        pickaxeIcon.enabled = true;
+        pickaxeHUD.GainItem();
     }
 }
