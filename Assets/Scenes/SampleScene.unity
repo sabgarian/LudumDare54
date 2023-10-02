@@ -1450,7 +1450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press "R" to Restart
+  m_text: Press "r" to Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
   m_sharedMaterial: {fileID: -1169688872040428271, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
@@ -29319,7 +29319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press "R" to Restart
+  m_text: Press "r" to Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
   m_sharedMaterial: {fileID: -1169688872040428271, guid: bcc3437e63c60cc4992b487c1fc4ecde, type: 2}
@@ -29926,7 +29926,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.32, y: 1.73}
+  m_Size: {x: 0.6, y: 1.2}
   m_EdgeRadius: 0
 --- !u!1001 &731110512
 PrefabInstance:
@@ -48685,6 +48685,14 @@ PrefabInstance:
     - target: {fileID: 2434774482738494002, guid: d0bdd9c56217a544f98f059b6d93413c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434774482738494013, guid: d0bdd9c56217a544f98f059b6d93413c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434774482738494013, guid: d0bdd9c56217a544f98f059b6d93413c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0bdd9c56217a544f98f059b6d93413c, type: 3}
