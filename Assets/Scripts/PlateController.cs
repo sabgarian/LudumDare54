@@ -15,7 +15,7 @@ public class PlateController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.isTrigger == false)
         {
             GetComponent<SpriteRenderer>().sprite = _rubble;
             GetComponent<BoxCollider2D>().isTrigger = false;

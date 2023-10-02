@@ -32401,7 +32401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3963913036047802051, guid: c09d922d943ede444ac2637c1f648d3f, type: 3}
       propertyPath: color
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3963913036047802055, guid: c09d922d943ede444ac2637c1f648d3f, type: 3}
       propertyPath: m_Name
@@ -33431,6 +33431,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 651756832, guid: a7e55e1801cb3b6428158c64b16b3572, type: 3}
       propertyPath: doorColor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 651756832, guid: a7e55e1801cb3b6428158c64b16b3572, type: 3}
+      propertyPath: defaultOpen
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 168392664801797976, guid: a7e55e1801cb3b6428158c64b16b3572, type: 3}
@@ -45598,11 +45602,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 651756832, guid: a7e55e1801cb3b6428158c64b16b3572, type: 3}
       propertyPath: doorColor
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 651756832, guid: a7e55e1801cb3b6428158c64b16b3572, type: 3}
       propertyPath: defaultOpen
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 168392664801797976, guid: a7e55e1801cb3b6428158c64b16b3572, type: 3}
       propertyPath: m_RootOrder

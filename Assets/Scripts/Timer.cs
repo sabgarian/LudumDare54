@@ -6,7 +6,7 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     static bool isCountingDown = false;
-    static float timeRemaining = 300;
+    static float timeRemaining = 540;
     public BestTimes timeArchive;
     public TMP_Text timerText;
     public TMP_Text bestTimeText;
