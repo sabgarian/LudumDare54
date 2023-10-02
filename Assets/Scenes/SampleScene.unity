@@ -28498,7 +28498,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9145213681601237233, guid: f14ee515a79aae244b707864448a29b1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f14ee515a79aae244b707864448a29b1, type: 3}
 --- !u!4 &636727620 stripped
 Transform:
@@ -29701,6 +29702,22 @@ PrefabInstance:
     - target: {fileID: 8089177471760719084, guid: f14ee515a79aae244b707864448a29b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089177471760719085, guid: f14ee515a79aae244b707864448a29b1, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089177471760719085, guid: f14ee515a79aae244b707864448a29b1, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089177471760719085, guid: f14ee515a79aae244b707864448a29b1, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089177471760719085, guid: f14ee515a79aae244b707864448a29b1, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f14ee515a79aae244b707864448a29b1, type: 3}
