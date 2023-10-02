@@ -12,8 +12,12 @@ public class EnemyMovement : MonoBehaviour
     public bool isVertical;
     private bool facingPos = true;
 
+    private Rigidbody2D enemyBody;
+
     // Start is called before the first frame update
-    void Start() { }
+    void Start() {
+        enemyBody = GetComponent<Rigidbody2D>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -51,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Player"))
         {
-            FindObjectOfType<PlayerControls>().TakeDamage();
+            FindObjectOfType<PlayerControls>().TakeDamage(enemyBody);
         }
     }
 }
