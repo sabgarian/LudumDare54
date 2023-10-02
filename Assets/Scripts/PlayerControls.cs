@@ -21,7 +21,10 @@ public class PlayerControls : MonoBehaviour
 
     public int health = 3;
     private bool takingDamage = false;
-    private int damageTimer = 5;
+    public static int damageTimeSetting = 10;
+    private int damageTimer = damageTimeSetting;
+
+    private Rigidbody2D playerRB;
 
     float torchTimer = 0f;
     Light2D light2D;
@@ -32,17 +35,21 @@ public class PlayerControls : MonoBehaviour
         light2D = GetComponent<Light2D>();
         animatorController = GetComponent<Animator>();
         light2D.enabled = false;
+        playerRB = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         HandleTorchTimer();
-        damageTimer--;
-        if(damageTimer <= 0)
+        if (takingDamage)
         {
-            canMove = true;
-            takingDamage = false;
-            damageTimer = 5;
+            damageTimer--;
+            if (damageTimer <= 0)
+            {
+                canMove = true;
+                takingDamage = false;
+                damageTimer = damageTimeSetting;
+            }
         }
     }
 
@@ -103,12 +110,16 @@ public class PlayerControls : MonoBehaviour
         UnityEngine.Debug.Log(health);
         
     }
-    
-    public void TakeDamage()
+
+    public void TakeDamage(Rigidbody2D enemyBody)
     {
+        Vector3 direction;
         health--;
         takingDamage = true;
         canMove = false;
+        direction = playerRB.transform.position - enemyBody.transform.position;
+        enemyBody.AddForce(direction.normalized * -500f);
+        playerRB.AddForce(direction.normalized * 500f);
 
         if (health <= 0)
         {
