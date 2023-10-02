@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Media;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -44,6 +45,10 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.CompareTag("IndestructableWall"))
         {
             facingPos = !facingPos;
+        }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            FindObjectOfType<PlayerControls>().TakeDamage();
         }
     }
 }

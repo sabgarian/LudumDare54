@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Security.Cryptography;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -15,6 +19,10 @@ public class PlayerControls : MonoBehaviour
     public GameOverScreen GameOverScreen;
     public VictoryScript VictoryScript;
 
+    public int health = 3;
+    private bool takingDamage = false;
+    private int damageTimer = 5;
+
     float torchTimer = 0f;
     Light2D light2D;
     Animator animatorController;
@@ -29,6 +37,13 @@ public class PlayerControls : MonoBehaviour
     void Update()
     {
         HandleTorchTimer();
+        damageTimer--;
+        if(damageTimer <= 0)
+        {
+            canMove = true;
+            takingDamage = false;
+            damageTimer = 5;
+        }
     }
 
     void FixedUpdate()
@@ -81,6 +96,25 @@ public class PlayerControls : MonoBehaviour
         animatorController.SetBool("walkingH", Mathf.Abs(horizontalChange) > Mathf.Epsilon);
 
         transform.position += new Vector3(horizontalChange, vertChange);
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        UnityEngine.Debug.Log(health);
+        
+    }
+    
+    public void TakeDamage()
+    {
+        health--;
+        takingDamage = true;
+        canMove = false;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            //Game over
+        }
     }
 
     public void OnCollisionStay2D(Collision2D other)
