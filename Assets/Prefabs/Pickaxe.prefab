@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6147148961101784195}
   - component: {fileID: 6147148961101784194}
   - component: {fileID: 6147148961101784193}
+  - component: {fileID: 798988779918089842}
   m_Layer: 0
   m_Name: Pickaxe
   m_TagString: Untagged
@@ -114,3 +115,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160bb61fc6ef2424fba5fc2401864269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &798988779918089842
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147148961101784192}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a2b989ed4af1344ab2b7bdd7d9b3e95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
