@@ -42,6 +42,6 @@ public class CameraController : MonoBehaviour
         controller.SetCamera(0);
         yield return new WaitForSeconds(3);
         player.canMove = true;
-        Timer.StartCountdown();
+        FindObjectOfType<Timer>().StartCountdown();
     }
 }

@@ -21,14 +21,16 @@ public class PlayerControls : MonoBehaviour
 
     public int health = 3;
     private bool takingDamage = false;
-    public static int damageTimeSetting = 10;
-    private int damageTimer = damageTimeSetting;
+    public static float damageTimeSetting = 1f;
+    private float damageTimer = damageTimeSetting;
 
     private Rigidbody2D playerRB;
 
     float torchTimer = 0f;
     Light2D light2D;
     Animator animatorController;
+    HealthHUD healthHUD;
+    SpriteRenderer spriteRenderer;
 
     void Start()
     {
@@ -36,6 +38,10 @@ public class PlayerControls : MonoBehaviour
         animatorController = GetComponent<Animator>();
         light2D.enabled = false;
         playerRB = GetComponent<Rigidbody2D>();
+        healthHUD = FindObjectOfType<HealthHUD>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        healthHUD.UpdateHUD(health);
     }
 
     void Update()
@@ -43,13 +49,14 @@ public class PlayerControls : MonoBehaviour
         HandleTorchTimer();
         if (takingDamage)
         {
-          damageTimer--;
-          if (damageTimer <= 0)
-          {
-              canMove = true;
-              takingDamage = false;
-              damageTimer = damageTimeSetting;
-          }
+            damageTimer -= Time.deltaTime;
+            if (damageTimer <= 0)
+            {
+                canMove = true;
+                takingDamage = false;
+                damageTimer = damageTimeSetting;
+                spriteRenderer.color = Color.white;
+            }
         }
     }
 
@@ -115,13 +122,20 @@ public class PlayerControls : MonoBehaviour
 
     public void TakeDamage(Rigidbody2D enemyBody)
     {
+        if (takingDamage)
+        {
+            return;
+        }
+
         Vector3 direction;
         health--;
         takingDamage = true;
         canMove = false;
         direction = playerRB.transform.position - enemyBody.transform.position;
-        enemyBody.AddForce(direction.normalized * -500f);
-        playerRB.AddForce(direction.normalized * 500f);
+        spriteRenderer.color = Color.gray;
+        playerRB.AddForce(direction.normalized * 300f);
+
+        healthHUD.UpdateHUD(health);
 
         if (health <= 0)
         {

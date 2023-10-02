@@ -4,30 +4,24 @@ using UnityEngine;
 
 public class BestTimes : MonoBehaviour
 {
-    public float record;
+    const string recordKey = "record";
+
     public float goldMedalBenchmark;
     public float silverMedalBenchmark;
     public string medal;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void RecordTime(float remainingTime)
     {
-        
-    }
-
-    public void recordTime(float remainingTime)
-    {
-        if(remainingTime > record)
+        float record = PlayerPrefs.HasKey(recordKey)
+            ? PlayerPrefs.GetFloat(recordKey)
+            : float.MaxValue;
+        if (remainingTime > record)
         {
-            record = remainingTime; 
+            record = remainingTime;
+            PlayerPrefs.SetFloat(recordKey, record);
         }
 
-        if(remainingTime > goldMedalBenchmark)
+        if (remainingTime > goldMedalBenchmark)
         {
             medal = "Gold";
         }
@@ -35,7 +29,7 @@ public class BestTimes : MonoBehaviour
         {
             medal = "Silver";
         }
-        else if(remainingTime > 0)
+        else if (remainingTime > 0)
         {
             medal = "Bronze";
         }
