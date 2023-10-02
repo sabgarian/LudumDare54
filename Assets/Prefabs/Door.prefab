@@ -126,3 +126,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorColor: 0
   defaultOpen: 0
+  doorClosedSprites:
+  - {fileID: 21300000, guid: acaa588e139e4ef409cb95978639b21a, type: 3}
+  - {fileID: 21300000, guid: 5308d3d42fc2b5a49837960e7d7bcd75, type: 3}
+  - {fileID: 21300000, guid: dcb892137eb5ca0499a210c144822a6a, type: 3}
+  doorOpenSprites:
+  - {fileID: 21300000, guid: e2a3ef2c741b1b34a96c5facfc322024, type: 3}
+  - {fileID: 21300000, guid: b8ce02ee60743eb4bbdf8bc4514a19fd, type: 3}
+  - {fileID: 21300000, guid: f4db61a52ea47e248acbc10f6557350d, type: 3}
