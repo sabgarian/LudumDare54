@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -61,6 +62,9 @@ public class PlayerControls : MonoBehaviour
         if (canBreakWall && Input.GetKeyDown(KeyCode.E))
         {
             BreakWall();
+        }
+        if (Input.GetKeyDown(KeyCode.R)) {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 
