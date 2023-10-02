@@ -156,6 +156,7 @@ public class PlayerControls : MonoBehaviour
         if (other.gameObject.CompareTag("BreakableWall"))
         {
             canBreakWall = true;
+            
         }
     }
 

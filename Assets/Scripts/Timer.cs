@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    static bool isCountingDown = false;
-    static float timeRemaining = 540;
+    bool isCountingDown = false;
+    float timeRemaining = 540;
     public BestTimes timeArchive;
     public TMP_Text timerText;
     public TMP_Text bestTimeText;
@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
                 timeArchive.RecordTime(timeRemaining);
                 gameOverScreen.gameObject.SetActive(true);
                 gameOverScreen.TriggerGameOver(true);
-            }
+            }          
             //Also stop timer in the event of a win condition
         }
     }
