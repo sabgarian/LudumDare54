@@ -17,6 +17,7 @@ public class PlayerControls : MonoBehaviour
     public GameOverScreen GameOverScreen;
     public ItemHUD pickaxeHUD,
         torchHUD;
+    public SpriteRenderer ePrompt;
 
     public int health = 3;
     private bool takingDamage = false;
@@ -43,6 +44,7 @@ public class PlayerControls : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         healthHUD.UpdateHUD(health);
+        ePrompt.enabled = false;
     }
 
     void Update()
@@ -63,7 +65,8 @@ public class PlayerControls : MonoBehaviour
         {
             BreakWall();
         }
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             SceneManager.LoadScene("SampleScene");
         }
     }
@@ -156,7 +159,7 @@ public class PlayerControls : MonoBehaviour
         if (other.gameObject.CompareTag("BreakableWall"))
         {
             canBreakWall = true;
-            
+            ePrompt.enabled = true;
         }
     }
 
@@ -165,6 +168,7 @@ public class PlayerControls : MonoBehaviour
         if (other.gameObject.CompareTag("BreakableWall"))
         {
             canBreakWall = false;
+            ePrompt.enabled = false;
         }
     }
 
