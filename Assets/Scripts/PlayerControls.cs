@@ -29,10 +29,12 @@ public class PlayerControls : MonoBehaviour
     private Rigidbody2D playerRB;
 
     float torchTimer = 0f;
+    bool canBreakWall = false;
     Light2D light2D;
     Animator animatorController;
     HealthHUD healthHUD;
     SpriteRenderer spriteRenderer;
+    Vector2 velocityVector;
 
     void Start()
     {
@@ -59,6 +61,10 @@ public class PlayerControls : MonoBehaviour
                 damageTimer = damageTimeSetting;
                 spriteRenderer.color = Color.white;
             }
+        }
+        if (canBreakWall && Input.GetKeyDown(KeyCode.E))
+        {
+            BreakWall();
         }
     }
 
@@ -115,7 +121,9 @@ public class PlayerControls : MonoBehaviour
         );
         animatorController.SetBool("walkingH", Mathf.Abs(horizontalChange) > Mathf.Epsilon);
 
-        transform.position += new Vector3(horizontalChange, vertChange);
+        velocityVector = new Vector2(horizontalChange, vertChange);
+
+        transform.position += (Vector3)velocityVector;
     }
 
     public void TakeDamage(Rigidbody2D enemyBody)
@@ -143,24 +151,30 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    public void OnCollisionStay2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (
-            other.gameObject.CompareTag("BreakableWall")
-            && Input.GetKeyDown(KeyCode.E)
-            && hasPickaxe
-        )
+        if (other.gameObject.CompareTag("BreakableWall"))
         {
-            Vector3Int point =
-                new(
-                    (int)(other.GetContact(0).point.x / 2f),
-                    (int)(other.GetContact(0).point.y / 2f)
-                );
-            Tilemap tilemap = other.gameObject.GetComponent<Tilemap>();
-            tilemap.SetTile(point, null);
-            hasPickaxe = false;
-            pickaxeHUD.LoseItem();
+            canBreakWall = true;
         }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("BreakableWall"))
+        {
+            canBreakWall = false;
+        }
+    }
+
+    void BreakWall()
+    {
+        Vector3 pointWorldSpace = transform.position + ((Vector3)velocityVector).normalized;
+        Vector3Int point = new((int)(pointWorldSpace.x / 2f), (int)(pointWorldSpace.y / 2f));
+        Tilemap tilemap = GameObject.FindGameObjectWithTag("BreakableWall").GetComponent<Tilemap>();
+        tilemap.SetTile(point, null);
+        hasPickaxe = false;
+        pickaxeHUD.LoseItem();
     }
 
     public void GainTorch()
