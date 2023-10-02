@@ -6,17 +6,18 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     static bool isCountingDown = false;
-    static float timeRemaining = 300;
+    static float timeRemaining = 15;
     public BestTimes timeArchive;
     public TMP_Text timerText;
     public TMP_Text bestTimeText;
+    public GameOverScreen gameOverScreen;
 
     void Start()
     {
         timerText.text = "---s";
         if (PlayerPrefs.HasKey("record"))
         {
-            bestTimeText.text = PlayerPrefs.GetFloat("record").ToString("F2") + "s";
+            bestTimeText.text = PlayerPrefs.GetFloat("record").ToString("F2");
         }
         else
         {
@@ -30,12 +31,14 @@ public class Timer : MonoBehaviour
         if (isCountingDown)
         {
             timeRemaining -= Time.deltaTime;
-            timerText.text = timeRemaining.ToString("F2") + "s";
+            timerText.text = timeRemaining.ToString("F2");
             if (timeRemaining <= 0)
             {
                 //Debug.Log("Game Over");
                 isCountingDown = false;
                 timeArchive.RecordTime(timeRemaining);
+                gameOverScreen.gameObject.SetActive(true);
+                gameOverScreen.TriggerGameOver(true);
             }
             //Also stop timer in the event of a win condition
         }

@@ -8,16 +8,17 @@ using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class PlayerControls : MonoBehaviour
 {
     public float velocity;
     public float torchDuration;
     public bool canMove = true;
-    public int pickaxeCount = 0;
+    public bool hasPickaxe = false;
 
     public GameOverScreen GameOverScreen;
-    public VictoryScript VictoryScript;
+    public Image pickaxeIcon;
 
     public int health = 3;
     private bool takingDamage = false;
@@ -115,11 +116,6 @@ public class PlayerControls : MonoBehaviour
         transform.position += new Vector3(horizontalChange, vertChange);
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
-    {
-        UnityEngine.Debug.Log(health);
-    }
-
     public void TakeDamage(Rigidbody2D enemyBody)
     {
         if (takingDamage)
@@ -140,7 +136,8 @@ public class PlayerControls : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            //Game over
+            GameOverScreen.gameObject.SetActive(true);
+            GameOverScreen.TriggerGameOver(false);
         }
     }
 
@@ -149,7 +146,7 @@ public class PlayerControls : MonoBehaviour
         if (
             other.gameObject.CompareTag("BreakableWall")
             && Input.GetKeyDown(KeyCode.E)
-            && pickaxeCount > 0
+            && hasPickaxe
         )
         {
             Vector3Int point =
@@ -159,7 +156,8 @@ public class PlayerControls : MonoBehaviour
                 );
             Tilemap tilemap = other.gameObject.GetComponent<Tilemap>();
             tilemap.SetTile(point, null);
-            pickaxeCount--;
+            hasPickaxe = false;
+            pickaxeIcon.enabled = false;
         }
     }
 
@@ -171,6 +169,7 @@ public class PlayerControls : MonoBehaviour
 
     public void GainPickaxe()
     {
-        pickaxeCount++;
+        hasPickaxe = true;
+        pickaxeIcon.enabled = true;
     }
 }

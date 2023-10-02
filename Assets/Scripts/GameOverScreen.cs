@@ -6,17 +6,36 @@ using UnityEngine.UI;
 
 public class GameOverScreen : MonoBehaviour
 {
-    public GameObject player;
-    public void SetUp()
+    public GameObject timeOutIcon;
+    public GameObject healthOutIcon;
+
+    GameObject player;
+
+    void Start()
     {
-        Destroy(player);
-        gameObject.SetActive(true);
+        player = FindObjectOfType<PlayerControls>().gameObject;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             SceneManager.LoadScene("SampleScene");
         }
+    }
+
+    public void TriggerGameOver(bool timeOut)
+    {
+        if (timeOut)
+        {
+            timeOutIcon.SetActive(true);
+            healthOutIcon.SetActive(false);
+        }
+        else
+        {
+            timeOutIcon.SetActive(false);
+            healthOutIcon.SetActive(true);
+        }
+        Destroy(player);
     }
 }

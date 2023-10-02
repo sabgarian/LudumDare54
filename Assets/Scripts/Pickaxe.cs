@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class Pickaxe : ObjectPickup
 {
-	Collider2D pickupCollider;
-	PlayerControls playerControls;
+    Collider2D pickupCollider;
+    PlayerControls playerControls;
 
     public override void Effect()
     {
         playerControls.GainPickaxe();
     }
 
-	private void Start()
-	{
-		pickupCollider = GetComponent<Collider2D>();
-		playerControls = FindObjectOfType<PlayerControls>();
+    protected override void Start()
+    {
+        base.Start();
+        pickupCollider = GetComponent<Collider2D>();
+        playerControls = FindObjectOfType<PlayerControls>();
+    }
 
-	}
-
-	private void Update()
-	{
-		pickupCollider.enabled = playerControls.pickaxeCount == 0;
-	}
+    protected override void Update()
+    {
+        base.Update();
+        pickupCollider.enabled = !playerControls.hasPickaxe;
+    }
 }

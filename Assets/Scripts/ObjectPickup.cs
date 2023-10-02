@@ -9,12 +9,12 @@ public class ObjectPickup : MonoBehaviour
 
     protected bool floating = true;
 
-	private void Start()
-	{
-		pos = transform.position;
-	}
+    protected virtual void Start()
+    {
+        pos = transform.position;
+    }
 
-	void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -28,14 +28,17 @@ public class ObjectPickup : MonoBehaviour
         Debug.Log("Effect not implemented");
     }
 
-	private void Update()
-	{
-        if (!floating) { return; }
+    protected virtual void Update()
+    {
+        if (!floating)
+        {
+            return;
+        }
 
         float time = Time.time;
         float offset = Mathf.Sin(5 * time);
         offset /= 10f;
 
         gameObject.transform.position = pos + Vector3.up * offset;
-	}
+    }
 }
