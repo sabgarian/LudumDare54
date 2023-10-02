@@ -11,6 +11,7 @@ TagManager:
   - IndestructableWall
   - Goalpost
   - LeverTrigger
+  - Door
   layers:
   - Default
   - TransparentFX

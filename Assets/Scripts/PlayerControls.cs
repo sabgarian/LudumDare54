@@ -43,13 +43,13 @@ public class PlayerControls : MonoBehaviour
         HandleTorchTimer();
         if (takingDamage)
         {
-            damageTimer--;
-            if (damageTimer <= 0)
-            {
-                canMove = true;
-                takingDamage = false;
-                damageTimer = damageTimeSetting;
-            }
+          damageTimer--;
+          if (damageTimer <= 0)
+          {
+              canMove = true;
+              takingDamage = false;
+              damageTimer = damageTimeSetting;
+          }
         }
     }
 
@@ -86,8 +86,8 @@ public class PlayerControls : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
-			vertChange -= velocity * Time.deltaTime;
-		}
+            vertChange -= velocity * Time.deltaTime;
+        }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             horizontalChange -= velocity * Time.deltaTime;
@@ -99,7 +99,10 @@ public class PlayerControls : MonoBehaviour
 
         animatorController.SetFloat("vChange", vertChange);
         animatorController.SetFloat("hChange", horizontalChange);
-        animatorController.SetBool("isWalking", Mathf.Abs(vertChange) > Mathf.Epsilon || Mathf.Abs(horizontalChange) > Mathf.Epsilon);
+        animatorController.SetBool(
+            "isWalking",
+            Mathf.Abs(vertChange) > Mathf.Epsilon || Mathf.Abs(horizontalChange) > Mathf.Epsilon
+        );
         animatorController.SetBool("walkingH", Mathf.Abs(horizontalChange) > Mathf.Epsilon);
 
         transform.position += new Vector3(horizontalChange, vertChange);
@@ -108,7 +111,6 @@ public class PlayerControls : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D other)
     {
         UnityEngine.Debug.Log(health);
-        
     }
 
     public void TakeDamage(Rigidbody2D enemyBody)

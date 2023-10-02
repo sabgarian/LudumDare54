@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+
 //using System.Media;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -46,7 +48,8 @@ public class EnemyMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("IndestructableWall"))
+        string[] obstacleTags = { "IndestructableWall", "BreakableWall", "Door" };
+        if (obstacleTags.Contains(other.gameObject.tag))
         {
             facingPos = !facingPos;
         }
