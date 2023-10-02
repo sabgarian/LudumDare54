@@ -6,6 +6,8 @@ public class Door : MonoBehaviour
 {
     public Lever.Color doorColor;
     public bool defaultOpen = false;
+    public Sprite[] doorClosedSprites = new Sprite[3];
+    public Sprite[] doorOpenSprites = new Sprite[3];
 
     bool isOpen = false;
     BoxCollider2D boxCollider2D;
@@ -25,7 +27,6 @@ public class Door : MonoBehaviour
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = Lever.leverColors[(int)doorColor];
         Debug.Log(spriteRenderer.color);
         isOpen = defaultOpen;
         if (isOpen)
@@ -59,24 +60,13 @@ public class Door : MonoBehaviour
 
     void Open()
     {
-        Debug.Log(doorColor + " door is open");
         boxCollider2D.enabled = false;
-        spriteRenderer.color = new Color(
-            spriteRenderer.color.r,
-            spriteRenderer.color.g,
-            spriteRenderer.color.b,
-            0.5f
-        );
+        spriteRenderer.sprite = doorOpenSprites[(int)doorColor];
     }
 
     void Close()
     {
         boxCollider2D.enabled = true;
-        spriteRenderer.color = new Color(
-            spriteRenderer.color.r,
-            spriteRenderer.color.g,
-            spriteRenderer.color.b,
-            1f
-        );
+        spriteRenderer.sprite = doorClosedSprites[(int)doorColor];
     }
 }

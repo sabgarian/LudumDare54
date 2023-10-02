@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Security.Cryptography;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
@@ -13,6 +14,7 @@ public class PlayerControls : MonoBehaviour
     public float velocity;
     public float torchDuration;
     public bool canMove = true;
+    public int pickaxeCount = 0;
 
     public GameOverScreen GameOverScreen;
     public VictoryScript VictoryScript;
@@ -23,11 +25,12 @@ public class PlayerControls : MonoBehaviour
 
     float torchTimer = 0f;
     Light2D light2D;
-    int pickaxeCount = 0;
+    Animator animatorController;
 
     void Start()
     {
         light2D = GetComponent<Light2D>();
+        animatorController = GetComponent<Animator>();
         light2D.enabled = false;
     }
 
@@ -67,22 +70,32 @@ public class PlayerControls : MonoBehaviour
             return;
         }
 
+        float vertChange = 0;
+        float horizontalChange = 0;
+
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
-            transform.position += new Vector3(0f, velocity * Time.deltaTime, 0f);
+            vertChange += velocity * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
-            transform.position += new Vector3(0f, -1f * velocity * Time.deltaTime, 0f);
-        }
+			vertChange -= velocity * Time.deltaTime;
+		}
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            transform.position += new Vector3(-1f * velocity * Time.deltaTime, 0f, 0f);
+            horizontalChange -= velocity * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            transform.position += new Vector3(velocity * Time.deltaTime, 0f, 0f);
+            horizontalChange += velocity * Time.deltaTime;
         }
+
+        animatorController.SetFloat("vChange", vertChange);
+        animatorController.SetFloat("hChange", horizontalChange);
+        animatorController.SetBool("isWalking", Mathf.Abs(vertChange) > Mathf.Epsilon || Mathf.Abs(horizontalChange) > Mathf.Epsilon);
+        animatorController.SetBool("walkingH", Mathf.Abs(horizontalChange) > Mathf.Epsilon);
+
+        transform.position += new Vector3(horizontalChange, vertChange);
     }
 
     public void OnCollisionEnter2D(Collision2D other)
@@ -120,10 +133,6 @@ public class PlayerControls : MonoBehaviour
             Tilemap tilemap = other.gameObject.GetComponent<Tilemap>();
             tilemap.SetTile(point, null);
             pickaxeCount--;
-        }
-        //Eventually, the Player will need to stop moving if they touch a wall of any kind (the wall serves as a solid barrier)
-        else if (other.gameObject.tag == "BreakableWall" || other.gameObject.tag == "IndestructableWall"){
-
         }
     }
 
